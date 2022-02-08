@@ -1,5 +1,18 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8898543397135869927
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 5
 --- !u!21 &2100000
 Material:
   serializedVersion: 6
@@ -32,7 +45,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_f64d300443dc4f95b084f5797afb908b_1:
-        m_Texture: {fileID: 2800000, guid: 5cee2f1bf96861b4d940ef036482470f, type: 3}
+        m_Texture: {fileID: 2800000, guid: a42cd62f3c2eebb47b0132c8c661b27e, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_f64d300443dc4f95b084f5797afb908b_2:
@@ -69,14 +82,16 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - Vector1_1: 2
-    - Vector1_2: 3
-    - Vector1_3: 50
-    - Vector1_4: 5
+    - Vector1_2: 0
+    - Vector1_3: 0
+    - Vector1_4: 0
     - Vector1_8d8496d906b24130a24ff1d8651b6a2a: 0
-    - Vector1_94b4399097a74de6b230cf0251da4c78: 48
+    - Vector1_94b4399097a74de6b230cf0251da4c78: 0
     - Vector1_f14360ad7cfc442f9d14a2a75b60ff25: 0.002
     - Vector1_f14360ad7cfc442f9d14a2a75b60ff25_1: 0.05
     - Vector1_f14360ad7cfc442f9d14a2a75b60ff25_2: 0.2
+    - _QueueControl: 0
+    - _QueueOffset: 0
     m_Colors:
     - Vector2_f57604fe172c46b68511634139fe1741: {r: 200, g: 200, b: 0, a: 0}
     - Vector3_8ebf1062694b42ceb73f83c1ec6bd230: {r: 0.5, g: 0.5, b: 0.5, a: 0}
