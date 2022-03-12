@@ -1,0 +1,27 @@
+fileFormatVersion: 2
+guid: 9b03cb8047d9db74995ed947a57d2613
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 053561912b1654d80a424bb0696a74ae, type: 3}
+  sourceScripts:
+  - {fileID: 6391573757903218779, guid: 5442e84f7b4da594dbce60db06ce6211, type: 3}
+  compileErrors: []
+  serializedDeclarations:
+  - name: $knows_anne_name
+    typeName: Bool
+    defaultValueBool: 0
+    defaultValueNumber: 0
+    defaultValueString: 
+    description: Does Tom know the name of the person he's talking to?
+    isImplicit: 0
+    sourceYarnAsset: {instanceID: 0}
+  defaultLanguage: ko-KR
+  languagesToSourceAssets: []
+  useAddressableAssets: 0
+  searchAllAssembliesForActions: 1
+  assembliesToSearch: []
