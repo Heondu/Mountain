@@ -1,5 +1,0 @@
-﻿title: Program
----
-/// Does Tom know the name of the person he's talking to?
-<<declare $knows_anne_name = false>>
-===

@@ -10,7 +10,7 @@ Material:
   m_Name: FlatTerrain-TerrainShader
   m_Shader: {fileID: 4800000, guid: fea9ee138d4a84d90a0c3f187fb3cd8a, type: 3}
   m_ShaderKeywords: DR_GRADIENT_ON _CELPRIMARYMODE_SINGLE _OVERRIDE_SHADOWS_ENABLED
-    _SECONDARY_COLOR_ENABLED _UNITYSHADOWMODE_NONE
+    _RECEIVE_SHADOWS_OFF _SECONDARY_COLOR_ENABLED _UNITYSHADOWMODE_NONE
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
