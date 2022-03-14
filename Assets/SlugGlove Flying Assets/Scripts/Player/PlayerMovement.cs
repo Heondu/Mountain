@@ -17,7 +17,6 @@ public class PlayerMovement : MonoBehaviour
     public WorldState States;
     private Transform Cam; //reference to our camera
     private PlayerVisuals Visuals; //script for handling visual effects
-    private Vector3 CheckPointPos; //where we respawn
 
     private DetectCollision Colli; //collision detection
     [HideInInspector]
@@ -108,10 +107,7 @@ public class PlayerMovement : MonoBehaviour
         Colli = GetComponent<DetectCollision>();
         Visuals = GetComponent<PlayerVisuals>();
         HipsPos = Visuals.HipsPos;
-
         Cam = Camera.main.transform;
-
-        CheckPointPos = transform.position;
 
         //setup this characters stats
         SetupCharacter();
@@ -143,6 +139,8 @@ public class PlayerMovement : MonoBehaviour
 
                 float AddAmt = Mathf.Clamp((ActSpeed * 0.5f), -10, 16);
                 float ForwardAmt = Mathf.Clamp(ActSpeed * 4f, JumpForwardAmount, 100);
+                if (InputHand.Vertical == 0 && InputHand.Horizontal == 0)
+                    ForwardAmt = ActSpeed;
 
                 StopCoroutine(JumpUp(ForwardAmt, JumpAmt + AddAmt));
                 StartCoroutine(JumpUp(ForwardAmt, JumpAmt + AddAmt));
@@ -459,13 +457,13 @@ public class PlayerMovement : MonoBehaviour
     void AnimCtrl()
     {
         //setup the location of any velocity based animations from our hip position 
-        Transform RelPos = this.transform;
+        Transform RelPos = transform;
 
         //find animations based on our hip position (for flying velocity animations
         if (HipsPos)
             RelPos = HipsPos;
         //get movement amounts in each direction
-        Vector3 RelVel = RelPos.transform.InverseTransformDirection(Rigid.velocity);
+        Vector3 RelVel = RelPos.InverseTransformDirection(Rigid.velocity);
         Anim.SetFloat("forwardMove", RelVel.z);
         Anim.SetFloat("sideMove", RelVel.x);
         Anim.SetFloat("upwardsMove", RelVel.y);
@@ -478,8 +476,11 @@ public class PlayerMovement : MonoBehaviour
 
         //set our grounded and flying animations
         Anim.SetBool("OnGround", OnGround);
+
+        Anim.SetBool("Jump", HasJumped);
+
         bool Fly = true;
-        if (States != WorldState.InAir)
+        if (States != WorldState.Flying)
             Fly = false;
 
         Anim.SetBool("Flying", Fly);
@@ -495,11 +496,11 @@ public class PlayerMovement : MonoBehaviour
 
     IEnumerator JumpUp(float ForwardAmt, float UpwardsAmt)
     {
-        //HasJumped = true;
+        HasJumped = true;
         //kill velocity
         Rigid.velocity = Vector3.zero;
         //set to in air as we will be 
-        SetInAir();
+        //SetInAir();
         //add force upwards
         if (UpwardsAmt != 0)
             Rigid.AddForce((Vector3.up * UpwardsAmt), ForceMode.Impulse);
@@ -635,8 +636,14 @@ public class PlayerMovement : MonoBehaviour
         DownwardDirection = Vector3.Lerp(DownwardDirection, LerpDirection, FallDirSpd * d);
 
         //lerp mesh slower when not on ground
-        RotateSelf(DownwardDirection, d, 8f);
-        RotateMesh(d, transform.forward, turnSpeedInAir);
+        //RotateSelf(DownwardDirection, d, 8f);
+        //RotateMesh(d, transform.forward, turnSpeedInAir);
+
+        Vector3 forward = Cam.forward;
+        Vector3 right = Cam.right;
+        Vector3 direction = (forward * InputHand.Vertical + right * InputHand.Horizontal).normalized;
+
+        transform.forward = Vector3.Slerp(transform.forward, direction, Time.deltaTime * FallingDirectionSpeed);
 
         //move character
         float Spd = Speed;
@@ -672,14 +679,12 @@ public class PlayerMovement : MonoBehaviour
         //RotateSelf(DownwardDirection, d, rotSpd);
         //RotateMesh(d, SideDir, rotSpd);
 
-        Vector3 forward = Camera.main.transform.forward;
-        Vector3 right = Camera.main.transform.right;
-
+        Vector3 forward = Cam.forward;
+        Vector3 right = Cam.right;
         forward.y = 0;
         right.y = 0;
         forward.Normalize();
         right.Normalize();
-
         Vector3 direction = forward * ZMove + right * XMove;
 
         transform.forward = Vector3.Slerp(transform.forward, direction, Time.deltaTime * rotSpd);
@@ -689,12 +694,14 @@ public class PlayerMovement : MonoBehaviour
 
         if (XMove == 0 && ZMove == 0)
             Speed = 1;
+        else if (InputHand.Accelerate)
+            Speed *= 1.5f;
 
         Vector3 targetVelocity = transform.forward * Speed;
         //push down more when not pressing fly
         //if(States == WorldState.InAir)
         if (XMove == 0 && ZMove == 0)
-            ActGravAmt = Mathf.Lerp(ActGravAmt, FlyingGravityAmt, FlyingGravBuildSpeed * 4f * d);
+            ActGravAmt = Mathf.Lerp(ActGravAmt, InputHand.Accelerate ? FlyingGravityAmt * 5 : FlyingGravityAmt, FlyingGravBuildSpeed * 4f * d);
         else
             ActGravAmt = Mathf.Lerp(ActGravAmt, GlideGravityAmt, FlyingGravBuildSpeed * 0.5f * d);
 

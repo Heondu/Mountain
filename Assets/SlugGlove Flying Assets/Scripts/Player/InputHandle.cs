@@ -37,5 +37,6 @@ public class InputHandle : MonoBehaviour
         RB = Input.GetKey(KeyCode.E);
         LB = Input.GetKey(KeyCode.Q);
 
+        Accelerate = Input.GetKey(KeyCode.LeftShift);
     }
 }
