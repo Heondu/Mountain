@@ -695,7 +695,7 @@ public class PlayerMovement : MonoBehaviour
         if (XMove == 0 && ZMove == 0)
             Speed = 1;
         else if (InputHand.Accelerate)
-            Speed *= 1.5f;
+            Speed *= 2f;
 
         Vector3 targetVelocity = transform.forward * Speed;
         //push down more when not pressing fly
