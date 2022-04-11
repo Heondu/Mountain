@@ -16,7 +16,10 @@ public class PlayerMovement : MonoBehaviour
     [HideInInspector]
     public WorldState States;
     private Transform Cam; //reference to our camera
+    private Transform CamY; //reference to our camera axis
+    private CameraFollow CamFol; //reference to our camera script
     private PlayerVisuals Visuals; //script for handling visual effects
+    private Vector3 CheckPointPos; //where we respawn
 
     private DetectCollision Colli; //collision detection
     [HideInInspector]
@@ -107,7 +110,12 @@ public class PlayerMovement : MonoBehaviour
         Colli = GetComponent<DetectCollision>();
         Visuals = GetComponent<PlayerVisuals>();
         HipsPos = Visuals.HipsPos;
-        Cam = Camera.main.transform;
+
+        Cam = GameObject.FindGameObjectWithTag("MainCamera").transform;
+        CamY = Cam.transform.parent.parent.transform;
+        CamFol = Cam.GetComponentInParent<CameraFollow>();
+
+        CheckPointPos = transform.position;
 
         //setup this characters stats
         SetupCharacter();
@@ -124,29 +132,6 @@ public class PlayerMovement : MonoBehaviour
 
         transform.position = Rigid.position;
 
-        if (InputHand.Jump)
-        {
-            //if the player can jump, isnt attacking and isnt using an item
-            if (!HasJumped)
-            {
-                if (Anim)
-                {
-                    MirrorAnim = !MirrorAnim;
-                    Anim.SetBool("Mirror", MirrorAnim);
-                }
-
-                Visuals.Jump();
-
-                float AddAmt = Mathf.Clamp((ActSpeed * 0.5f), -10, 16);
-                float ForwardAmt = Mathf.Clamp(ActSpeed * 4f, JumpForwardAmount, 100);
-                if (InputHand.Vertical == 0 && InputHand.Horizontal == 0)
-                    ForwardAmt = ActSpeed;
-
-                StopCoroutine(JumpUp(ForwardAmt, JumpAmt + AddAmt));
-                StartCoroutine(JumpUp(ForwardAmt, JumpAmt + AddAmt));
-            }
-        }
-
         //check for jumping
         if (States == WorldState.Grounded)
         {
@@ -161,6 +146,29 @@ public class PlayerMovement : MonoBehaviour
                 SetInAir();
                 return;
             }
+
+            if (InputHand.Jump)
+            {
+                //if the player can jump, isnt attacking and isnt using an item
+                if (!HasJumped)
+                {                   
+                    if(Anim)
+                    {
+                        MirrorAnim = !MirrorAnim;
+                        Anim.SetBool("Mirror", MirrorAnim);
+                    }
+
+                    Visuals.Jump();
+
+                    float AddAmt = Mathf.Clamp((ActSpeed * 0.5f), -10, 16);
+                    float ForwardAmt = Mathf.Clamp(ActSpeed * 4f, JumpForwardAmount, 100);
+
+                    StopCoroutine(JumpUp(ForwardAmt, JumpAmt + AddAmt));
+                    StartCoroutine(JumpUp(ForwardAmt, JumpAmt + AddAmt));
+
+                    return;
+                }
+            }
         }
         else if (States == WorldState.InAir)
         {
@@ -170,7 +178,7 @@ public class PlayerMovement : MonoBehaviour
             if (HasJumped) //cannot switch to flying until jump is done
                 return;
 
-            if (States == WorldState.InAir)  //switch to flying
+            if (InputHand.Fly)  //switch to flying
                 SetFlying();
 
 
@@ -204,7 +212,7 @@ public class PlayerMovement : MonoBehaviour
             }
 
             //check for ground if we are not holding the flying button
-            if (States != WorldState.InAir)
+            if (!InputHand.Fly)
             {
                 bool Ground = Colli.CheckGround();
 
@@ -223,6 +231,13 @@ public class PlayerMovement : MonoBehaviour
         //tick deltatime
         delta = Time.deltaTime;
 
+        //get velocity to feed to the camera
+        float CamVel = 0;
+        if (Rigid != null)
+            CamVel = Rigid.velocity.magnitude;
+        //change the cameras fov based on speed
+        CamFol.HandleFov(delta, CamVel);
+
         //cannot function when dead
         if (States == WorldState.Static)
         {
@@ -239,8 +254,9 @@ public class PlayerMovement : MonoBehaviour
         float _zMov = InputHand.Vertical;
 
         //get our direction of input based on camera position
-        Vector3 screenMovementForward = Cam.transform.forward;
-        Vector3 screenMovementRight = Cam.transform.right;
+        Vector3 screenMovementForward = CamY.transform.forward;
+        Vector3 screenMovementRight = CamY.transform.right;
+        Vector3 screenMovementUp = CamY.transform.up;
 
         Vector3 h = screenMovementRight * _xMov;
         Vector3 v = screenMovementForward * _zMov;
@@ -295,7 +311,7 @@ public class PlayerMovement : MonoBehaviour
         else if (States == WorldState.Flying)
         {
             //setup gliding
-            if (States != WorldState.InAir)
+            if (!InputHand.Fly)
             {
                 if (FlyingTimer > 0) //reduce flying timer 
                     FlyingTimer -= delta;
@@ -327,7 +343,7 @@ public class PlayerMovement : MonoBehaviour
             float YAmt = Rigid.velocity.y;
             float FlyAccel = FlyingAcceleration * FlyingAdjustmentLerp;
             float Spd = FlyingSpeed;
-            if (States != WorldState.InAir)  //we are not holding fly, slow down
+            if (!InputHand.Fly)  //we are not holding fly, slow down
             {
                 Spd = FlyingMinSpeed; 
                 if(ActSpeed > FlyingMinSpeed)
@@ -405,6 +421,9 @@ public class PlayerMovement : MonoBehaviour
         States = WorldState.Grounded; //on ground
         OnGround = true;
 
+        //camera reset flying state
+        CamFol.SetFlyingState(0);
+
         //turn on gravity
         Rigid.useGravity = true;
     }
@@ -416,6 +435,9 @@ public class PlayerMovement : MonoBehaviour
         ActionAirTimer = 0.2f;
 
         States = WorldState.InAir;
+
+        //camera reset flying state
+        CamFol.SetFlyingState(0);
 
         //turn off gravity
         Rigid.useGravity = true;
@@ -431,6 +453,9 @@ public class PlayerMovement : MonoBehaviour
         ActGravAmt = 0f; //our gravity is returned to the flying amount
 
         FlownAdjustmentLerp = -1;
+
+        //camera set flying state
+        CamFol.SetFlyingState(1);
 
         //turn on gravity
         Rigid.useGravity = false;
@@ -457,13 +482,13 @@ public class PlayerMovement : MonoBehaviour
     void AnimCtrl()
     {
         //setup the location of any velocity based animations from our hip position 
-        Transform RelPos = transform;
+        Transform RelPos = this.transform;
 
         //find animations based on our hip position (for flying velocity animations
         if (HipsPos)
             RelPos = HipsPos;
         //get movement amounts in each direction
-        Vector3 RelVel = RelPos.InverseTransformDirection(Rigid.velocity);
+        Vector3 RelVel = RelPos.transform.InverseTransformDirection(Rigid.velocity);
         Anim.SetFloat("forwardMove", RelVel.z);
         Anim.SetFloat("sideMove", RelVel.x);
         Anim.SetFloat("upwardsMove", RelVel.y);
@@ -476,11 +501,8 @@ public class PlayerMovement : MonoBehaviour
 
         //set our grounded and flying animations
         Anim.SetBool("OnGround", OnGround);
-
-        Anim.SetBool("Jump", HasJumped);
-
         bool Fly = true;
-        if (States != WorldState.Flying)
+        if (!InputHand.Fly)
             Fly = false;
 
         Anim.SetBool("Flying", Fly);
@@ -500,7 +522,7 @@ public class PlayerMovement : MonoBehaviour
         //kill velocity
         Rigid.velocity = Vector3.zero;
         //set to in air as we will be 
-        //SetInAir();
+        SetInAir();
         //add force upwards
         if (UpwardsAmt != 0)
             Rigid.AddForce((Vector3.up * UpwardsAmt), ForceMode.Impulse);
@@ -636,14 +658,8 @@ public class PlayerMovement : MonoBehaviour
         DownwardDirection = Vector3.Lerp(DownwardDirection, LerpDirection, FallDirSpd * d);
 
         //lerp mesh slower when not on ground
-        //RotateSelf(DownwardDirection, d, 8f);
-        //RotateMesh(d, transform.forward, turnSpeedInAir);
-
-        Vector3 forward = Cam.forward;
-        Vector3 right = Cam.right;
-        Vector3 direction = (forward * InputHand.Vertical + right * InputHand.Horizontal).normalized;
-
-        transform.forward = Vector3.Slerp(transform.forward, direction, Time.deltaTime * FallingDirectionSpeed);
+        RotateSelf(DownwardDirection, d, 8f);
+        RotateMesh(d, transform.forward, turnSpeedInAir);
 
         //move character
         float Spd = Speed;
@@ -662,8 +678,8 @@ public class PlayerMovement : MonoBehaviour
     void FlyingCtrl(float d, float Speed, float XMove, float ZMove)
     {
         //input direction 
-        float InvertX = 1;
-        float InvertY = 1;
+        float InvertX = -1;
+        float InvertY = -1;
 
         XMove = XMove * InvertX; //horizontal inputs
         ZMove = ZMove * InvertY; //vertical inputs
@@ -676,40 +692,22 @@ public class PlayerMovement : MonoBehaviour
         float FlyLerpSpd = FlyingAdjustmentSpeed * FlyingAdjustmentLerp;
 
         //lerp mesh slower when not on ground
-        //RotateSelf(DownwardDirection, d, rotSpd);
-        //RotateMesh(d, SideDir, rotSpd);
-
-        Vector3 forward = Cam.forward;
-        Vector3 right = Cam.right;
-        forward.y = 0;
-        right.y = 0;
-        forward.Normalize();
-        right.Normalize();
-        Vector3 direction = forward * ZMove + right * XMove;
-
-        transform.forward = Vector3.Slerp(transform.forward, direction, Time.deltaTime * rotSpd);
+        RotateSelf(DownwardDirection, d, rotSpd);
+        RotateMesh(d, SideDir, rotSpd);
 
         if (FlyingTimer < GlideTime * 0.7f) //lerp to velocity if not flying
             RotateToVelocity(d, rotSpd * 0.05f);
 
-        if (XMove == 0 && ZMove == 0)
-            Speed = 1;
-        else if (InputHand.Accelerate)
-            Speed *= 2f;
-
         Vector3 targetVelocity = transform.forward * Speed;
         //push down more when not pressing fly
-        //if(States == WorldState.InAir)
-        if (XMove == 0 && ZMove == 0)
-            ActGravAmt = Mathf.Lerp(ActGravAmt, InputHand.Accelerate ? FlyingGravityAmt * 5 : FlyingGravityAmt, FlyingGravBuildSpeed * 4f * d);
+        if(InputHand.Fly)
+            ActGravAmt = Mathf.Lerp(ActGravAmt, FlyingGravityAmt, FlyingGravBuildSpeed * 4f * d);
         else
             ActGravAmt = Mathf.Lerp(ActGravAmt, GlideGravityAmt, FlyingGravBuildSpeed * 0.5f * d);
-
+ 
         targetVelocity -= Vector3.up * ActGravAmt;
-
         //lerp velocity
         Vector3 dir = Vector3.Lerp(Rigid.velocity, targetVelocity, d * FlyLerpSpd);
-
         Rigid.velocity = dir;
     }
 

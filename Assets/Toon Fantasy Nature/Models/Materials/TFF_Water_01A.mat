@@ -39,7 +39,7 @@ Material:
     - _FoamScale: 0.38
     - _FoamSpeed: 0.125
     - _FresnelIntensity: 0.6
-    - _Opacity: 0.55
+    - _Opacity: 0.9
     - _OpacityDepth: 17
     - _ReflectionsCutoff: 0.4
     - _ReflectionsCutoffScale: 16
@@ -59,3 +59,4 @@ Material:
     - _FoamColor: {r: 0.8962264, g: 0.7051899, b: 0.49461553, a: 1}
     - _FresnelColor: {r: 0.40792987, g: 0.6336544, b: 0.9716981, a: 1}
     - _ShallowColor: {r: 0.20558919, g: 0.65796304, b: 0.7924528, a: 1}
+  m_BuildTextureStacks: []

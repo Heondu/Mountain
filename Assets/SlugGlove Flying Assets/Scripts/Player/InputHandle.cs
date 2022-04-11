@@ -31,12 +31,11 @@ public class InputHandle : MonoBehaviour
         Vertical = Input.GetAxis("Vertical");
 
         Jump = Input.GetButtonDown("Jump");
-        //JumpHold = Input.GetButton("Jump");
-        //Fly = JumpHold; 
+        JumpHold = Input.GetButton("Jump");
+        Fly = JumpHold; 
 
-        RB = Input.GetKey(KeyCode.E);
-        LB = Input.GetKey(KeyCode.Q);
+        RB = Input.GetKeyDown(KeyCode.E);
+        LB = Input.GetKeyDown(KeyCode.Q);
 
-        Accelerate = Input.GetKey(KeyCode.LeftShift);
     }
 }
