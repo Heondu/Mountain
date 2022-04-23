@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4800483435198574}
   - component: {fileID: 205964159740527648}
   - component: {fileID: 64727783025228646}
-  m_Layer: 16
+  m_Layer: 0
   m_Name: CliffEdge02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -87,12 +87,12 @@ GameObject:
   - component: {fileID: 4403182198539604}
   - component: {fileID: 33709328409297550}
   - component: {fileID: 23809129846117290}
-  m_Layer: 16
+  m_Layer: 0
   m_Name: CliffEdge02_LOD02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967294
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &4403182198539604
 Transform:
@@ -168,12 +168,12 @@ GameObject:
   - component: {fileID: 4455124629221700}
   - component: {fileID: 33091419627482504}
   - component: {fileID: 23234611418219790}
-  m_Layer: 16
+  m_Layer: 0
   m_Name: CliffEdge02_LOD01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967294
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &4455124629221700
 Transform:
@@ -249,7 +249,7 @@ GameObject:
   - component: {fileID: 4526709709538392}
   - component: {fileID: 33364364141850766}
   - component: {fileID: 23440300400588606}
-  m_Layer: 16
+  m_Layer: 0
   m_Name: CliffEdge02_LOD00
   m_TagString: Untagged
   m_Icon: {fileID: 0}

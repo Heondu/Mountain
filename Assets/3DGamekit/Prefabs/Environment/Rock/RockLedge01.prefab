@@ -11,12 +11,12 @@ GameObject:
   - component: {fileID: 4024785323134158}
   - component: {fileID: 33616461643455074}
   - component: {fileID: 23484909342428556}
-  m_Layer: 16
+  m_Layer: 0
   m_Name: RockLedge01_LOD02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967294
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &4024785323134158
 Transform:
@@ -92,12 +92,12 @@ GameObject:
   - component: {fileID: 4438840072370922}
   - component: {fileID: 33063619492862194}
   - component: {fileID: 23119080940659516}
-  m_Layer: 16
+  m_Layer: 0
   m_Name: RockLedge01_LOD01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967294
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &4438840072370922
 Transform:
@@ -173,7 +173,7 @@ GameObject:
   - component: {fileID: 4946618981427986}
   - component: {fileID: 205701782185668478}
   - component: {fileID: 64541180481382854}
-  m_Layer: 16
+  m_Layer: 0
   m_Name: RockLedge01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -249,7 +249,7 @@ GameObject:
   - component: {fileID: 4542089863539542}
   - component: {fileID: 33401369960434400}
   - component: {fileID: 23824617672857122}
-  m_Layer: 16
+  m_Layer: 0
   m_Name: RockLedge01_LOD00
   m_TagString: Untagged
   m_Icon: {fileID: 0}

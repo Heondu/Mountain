@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6311960060312625012}
   - component: {fileID: 4891454655456452017}
   - component: {fileID: 5683040713724136375}
+  - component: {fileID: -7208056130483157561}
   m_Layer: 0
   m_Name: P_AncientRuins_Rock3
   m_TagString: Untagged
@@ -96,3 +97,27 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 5367184931492316870, guid: 90220ae87f239d4498c425af8694ed9e, type: 3}
+--- !u!205 &-7208056130483157561
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8391082246537981014}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0, y: 0, z: 0}
+  m_Size: 1
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.6
+    fadeTransitionWidth: 0
+    renderers: []
+  - screenRelativeHeight: 0.3
+    fadeTransitionWidth: 0
+    renderers: []
+  - screenRelativeHeight: 0.1
+    fadeTransitionWidth: 0
+    renderers: []
+  m_Enabled: 0

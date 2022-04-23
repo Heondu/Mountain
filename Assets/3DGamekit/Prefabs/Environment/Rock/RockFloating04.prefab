@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4673692987044034}
   - component: {fileID: 205702833182344760}
   - component: {fileID: 64309325760360866}
-  m_Layer: 16
+  m_Layer: 0
   m_Name: RockFloating04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -87,12 +87,12 @@ GameObject:
   - component: {fileID: 4798007145947458}
   - component: {fileID: 33401365081248838}
   - component: {fileID: 23400844500758508}
-  m_Layer: 16
+  m_Layer: 0
   m_Name: RockFloating04_LOD01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967294
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &4798007145947458
 Transform:
@@ -168,12 +168,12 @@ GameObject:
   - component: {fileID: 4519196276290690}
   - component: {fileID: 33460721976312134}
   - component: {fileID: 23883684761818812}
-  m_Layer: 16
+  m_Layer: 0
   m_Name: RockFloating04_LOD02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967294
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &4519196276290690
 Transform:
@@ -249,7 +249,7 @@ GameObject:
   - component: {fileID: 4485387354185974}
   - component: {fileID: 33349497928069190}
   - component: {fileID: 23782951423260652}
-  m_Layer: 16
+  m_Layer: 0
   m_Name: RockFloating04_LOD00
   m_TagString: Untagged
   m_Icon: {fileID: 0}

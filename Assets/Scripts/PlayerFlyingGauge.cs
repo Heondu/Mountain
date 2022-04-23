@@ -1,0 +1,64 @@
+using UnityEngine;
+using UnityEngine.Events;
+
+public class PlayerFlyingGauge : MonoBehaviour
+{
+    [SerializeField] private float flyingGauge = 5f;
+    private float currentFlyingGauge = 0f;
+    [SerializeField] private float cooldown = 3f;
+    private PlayerMovement movement;
+
+    [HideInInspector]
+    public UnityEvent<float, float> onValueChanged = new UnityEvent<float, float>();
+
+    private void Awake()
+    {
+        movement = GetComponent<PlayerMovement>();
+        currentFlyingGauge = flyingGauge;
+    }
+
+    private void Update()
+    {
+        if (movement.States == PlayerMovement.WorldState.Grounded)
+            Cooldown();
+        else if (movement.States == PlayerMovement.WorldState.Flying)
+            UseGauge();
+    }
+
+    public void AddFlyingGauge(float amount)
+    {
+        flyingGauge += amount;
+        GaugeUIUpdate();
+    }
+
+    private void Cooldown()
+    {
+        currentFlyingGauge += Time.deltaTime * (flyingGauge / cooldown);
+        ClampGauge();
+        GaugeUIUpdate();
+    }
+
+    private void UseGauge()
+    {
+        currentFlyingGauge -= Time.deltaTime;
+        ClampGauge();
+        GaugeUIUpdate();
+    }
+
+    public bool isGaugeLeft()
+    {
+        if (currentFlyingGauge <= 0)
+            return false;
+        return true;
+    }
+
+    private void GaugeUIUpdate()
+    {
+        onValueChanged.Invoke(flyingGauge, currentFlyingGauge);
+    }
+
+    private void ClampGauge()
+    {
+        currentFlyingGauge = Mathf.Clamp(currentFlyingGauge, 0, flyingGauge);
+    }
+}

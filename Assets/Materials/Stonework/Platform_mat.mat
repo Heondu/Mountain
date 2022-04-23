@@ -144,6 +144,8 @@ Material:
     - _Use_Mask: 1
     - _ZWrite: 1
     m_Colors:
+    - Vector2_69362c06819d4a8399a3941dec75ef5e: {r: 1, g: 1, b: 0, a: 0}
+    - Vector2_e93de4230e094a66b8f6e0c5759a7b4e: {r: 1, g: 1, b: 0, a: 0}
     - _Color: {r: 1, g: 0.995283, b: 0.995283, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 0}
     - _EmissiveColor: {r: 1, g: 1, b: 1, a: 1}

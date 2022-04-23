@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4758071682535036}
   - component: {fileID: 205083648174931220}
   - component: {fileID: 64132869245380366}
-  m_Layer: 16
+  m_Layer: 0
   m_Name: RockFloating02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -87,7 +87,7 @@ GameObject:
   - component: {fileID: 4668536409331486}
   - component: {fileID: 33994223097500488}
   - component: {fileID: 23358764484079192}
-  m_Layer: 16
+  m_Layer: 0
   m_Name: RockFloating02_LOD02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -168,7 +168,7 @@ GameObject:
   - component: {fileID: 4738873361136478}
   - component: {fileID: 33424977786251918}
   - component: {fileID: 23886290156131486}
-  m_Layer: 16
+  m_Layer: 0
   m_Name: RockFloating02_LOD01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -249,7 +249,7 @@ GameObject:
   - component: {fileID: 4705034197889564}
   - component: {fileID: 33852834693494316}
   - component: {fileID: 23517184131127144}
-  m_Layer: 16
+  m_Layer: 0
   m_Name: RockFloating02_LOD00
   m_TagString: Untagged
   m_Icon: {fileID: 0}

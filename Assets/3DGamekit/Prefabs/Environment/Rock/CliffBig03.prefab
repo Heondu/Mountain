@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4628844664775772}
   - component: {fileID: 33299955359172146}
   - component: {fileID: 23618664390947096}
-  m_Layer: 16
+  m_Layer: 0
   m_Name: CliffBig03_LOD00
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,12 +92,12 @@ GameObject:
   - component: {fileID: 4750696453960364}
   - component: {fileID: 33833543465659384}
   - component: {fileID: 23678570308427116}
-  m_Layer: 16
+  m_Layer: 0
   m_Name: CliffBig03_LOD02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967294
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &4750696453960364
 Transform:
@@ -173,12 +173,12 @@ GameObject:
   - component: {fileID: 4843616887770710}
   - component: {fileID: 33006200114686442}
   - component: {fileID: 23055486388914718}
-  m_Layer: 16
+  m_Layer: 0
   m_Name: CliffBig03_LOD01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967294
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &4843616887770710
 Transform:
@@ -254,7 +254,7 @@ GameObject:
   - component: {fileID: 4484725512817084}
   - component: {fileID: 205456660805097420}
   - component: {fileID: 64210552487587310}
-  m_Layer: 16
+  m_Layer: 0
   m_Name: CliffBig03
   m_TagString: Untagged
   m_Icon: {fileID: 0}

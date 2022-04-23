@@ -676,7 +676,7 @@ MonoBehaviour:
   target: {fileID: 3836839634104496556}
   YPivot: {fileID: 3836839633692541358}
   camTransform: {fileID: 3836839634356000162}
-  MouseSpeed: 2
+  MouseSpeed: 20
   turnSmoothing: 0.1
   minAngle: -89
   maxAngle: 89

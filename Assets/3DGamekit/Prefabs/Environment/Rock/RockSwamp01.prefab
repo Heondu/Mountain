@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4033406464408490}
   - component: {fileID: 205608355313072192}
   - component: {fileID: 64788482172594214}
-  m_Layer: 16
+  m_Layer: 0
   m_Name: RockSwamp01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -87,12 +87,12 @@ GameObject:
   - component: {fileID: 4307747833284742}
   - component: {fileID: 33492101080268862}
   - component: {fileID: 23092304496063074}
-  m_Layer: 16
+  m_Layer: 0
   m_Name: RockSwamp01_LOD02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967294
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &4307747833284742
 Transform:
@@ -168,7 +168,7 @@ GameObject:
   - component: {fileID: 4062548940877080}
   - component: {fileID: 33935624369096002}
   - component: {fileID: 23789285391326508}
-  m_Layer: 16
+  m_Layer: 0
   m_Name: RockSwamp01_LOD00
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -249,12 +249,12 @@ GameObject:
   - component: {fileID: 4416577578350504}
   - component: {fileID: 33581314266704246}
   - component: {fileID: 23730661133981324}
-  m_Layer: 16
+  m_Layer: 0
   m_Name: RockSwamp01_LOD01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967294
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &4416577578350504
 Transform:

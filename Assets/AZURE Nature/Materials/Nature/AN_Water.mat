@@ -103,3 +103,4 @@ Material:
     - _NormalScale: {r: 2, g: 2, b: 0, a: 0}
     - _Vector0: {r: 1, g: 1, b: 1, a: 0}
     - _WaterColor: {r: 1, g: 1, b: 1, a: 0}
+  m_BuildTextureStacks: []

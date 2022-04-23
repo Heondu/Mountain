@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4365314594726328}
   - component: {fileID: 205170058121242336}
   - component: {fileID: 64874930411052896}
-  m_Layer: 16
+  m_Layer: 0
   m_Name: RockChunk01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25,16 +25,16 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1103786686026924}
-  m_LocalRotation: {x: -0.009535422, y: -0.992261, z: -0.06069584, w: -0.10790407}
-  m_LocalPosition: {x: 17.00296, y: -3.7299995, z: -2.7949843}
-  m_LocalScale: {x: 1.2905583, y: 1.2905538, z: 1.2905575}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4921942530233450}
   - {fileID: 4213068729876796}
   - {fileID: 4188145419689378}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 7.2660003, y: 47.105003, z: -5.511}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!205 &205170058121242336
 LODGroup:
   m_ObjectHideFlags: 0
@@ -43,8 +43,8 @@ LODGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1103786686026924}
   serializedVersion: 2
-  m_LocalReferencePoint: {x: 0.50679827, y: 3.4853096, z: 0.008946657}
-  m_Size: 14.814415
+  m_LocalReferencePoint: {x: 0.50679827, y: 3.4853106, z: 0.008946657}
+  m_Size: 14.814407
   m_FadeMode: 0
   m_AnimateCrossFading: 0
   m_LastLODIsBillboard: 0
@@ -87,7 +87,7 @@ GameObject:
   - component: {fileID: 4921942530233450}
   - component: {fileID: 33021284677109982}
   - component: {fileID: 23545017397188402}
-  m_Layer: 16
+  m_Layer: 0
   m_Name: RockChunk01_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -168,12 +168,12 @@ GameObject:
   - component: {fileID: 4213068729876796}
   - component: {fileID: 33610948189686082}
   - component: {fileID: 23242231726668640}
-  m_Layer: 16
+  m_Layer: 0
   m_Name: RockChunk01_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967294
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &4213068729876796
 Transform:
@@ -223,7 +223,7 @@ MeshRenderer:
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
+  m_ScaleInLightmap: 0.7
   m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
@@ -249,12 +249,12 @@ GameObject:
   - component: {fileID: 4188145419689378}
   - component: {fileID: 33428737565342758}
   - component: {fileID: 23375945598492458}
-  m_Layer: 16
+  m_Layer: 0
   m_Name: RockChunk01_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967294
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &4188145419689378
 Transform:
@@ -304,7 +304,7 @@ MeshRenderer:
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
+  m_ScaleInLightmap: 0.59999996
   m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0

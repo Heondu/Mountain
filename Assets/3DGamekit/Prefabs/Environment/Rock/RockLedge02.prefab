@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4538223701285738}
   - component: {fileID: 33864972404463334}
   - component: {fileID: 23374772751165238}
-  m_Layer: 16
+  m_Layer: 0
   m_Name: RockLedge02_LOD02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 4307009308622138}
   - component: {fileID: 33532117864734264}
   - component: {fileID: 23575239855056558}
-  m_Layer: 16
+  m_Layer: 0
   m_Name: RockLedge02_LOD00
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -173,7 +173,7 @@ GameObject:
   - component: {fileID: 4774135952226054}
   - component: {fileID: 205974591508773012}
   - component: {fileID: 64487947252619528}
-  m_Layer: 16
+  m_Layer: 0
   m_Name: RockLedge02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -249,7 +249,7 @@ GameObject:
   - component: {fileID: 4211273149117618}
   - component: {fileID: 33260543623795966}
   - component: {fileID: 23731350089972478}
-  m_Layer: 16
+  m_Layer: 0
   m_Name: RockLedge02_LOD01
   m_TagString: Untagged
   m_Icon: {fileID: 0}

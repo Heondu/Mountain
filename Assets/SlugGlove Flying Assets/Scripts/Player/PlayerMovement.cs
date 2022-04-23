@@ -27,7 +27,10 @@ public class PlayerMovement : MonoBehaviour
     private Animator Anim; //animator
     private InputHandle InputHand; //script for handling our inputs
 
+    private PlayerFlyingGauge playerFlyingGauge;
+
     float delta;
+    private float flyingTime = 0;
 
     [Header("Physics")]
     public float HandleReturnSpeed; //how quickly our handle on our character is returned to normal after a force is added (such as jumping
@@ -110,6 +113,7 @@ public class PlayerMovement : MonoBehaviour
         Colli = GetComponent<DetectCollision>();
         Visuals = GetComponent<PlayerVisuals>();
         HipsPos = Visuals.HipsPos;
+        playerFlyingGauge = GetComponent<PlayerFlyingGauge>();
 
         Cam = GameObject.FindGameObjectWithTag("MainCamera").transform;
         CamY = Cam.transform.parent.parent.transform;
@@ -222,6 +226,11 @@ public class PlayerMovement : MonoBehaviour
                     return;
                 }
             }
+
+            if (!playerFlyingGauge.isGaugeLeft())
+            {
+                SetInAir();
+            }
         }
     }
 
@@ -230,6 +239,7 @@ public class PlayerMovement : MonoBehaviour
     {
         //tick deltatime
         delta = Time.deltaTime;
+        flyingTime += delta;
 
         //get velocity to feed to the camera
         float CamVel = 0;

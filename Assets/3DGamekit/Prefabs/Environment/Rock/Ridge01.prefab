@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4632613187580302}
   - component: {fileID: 33582071573037164}
   - component: {fileID: 23425637130042956}
-  m_Layer: 16
+  m_Layer: 0
   m_Name: Ridge01_LOD00
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,12 +92,12 @@ GameObject:
   - component: {fileID: 4854197609952200}
   - component: {fileID: 33222934421700752}
   - component: {fileID: 23441154359768862}
-  m_Layer: 16
+  m_Layer: 0
   m_Name: Ridge01_LOD01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967294
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &4854197609952200
 Transform:
@@ -173,7 +173,7 @@ GameObject:
   - component: {fileID: 4238784372991494}
   - component: {fileID: 205341146394524948}
   - component: {fileID: 64558813714392668}
-  m_Layer: 16
+  m_Layer: 0
   m_Name: Ridge01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -249,12 +249,12 @@ GameObject:
   - component: {fileID: 4952864451502774}
   - component: {fileID: 33109545861235726}
   - component: {fileID: 23998137965419650}
-  m_Layer: 16
+  m_Layer: 0
   m_Name: Ridge01_LOD02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967294
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &4952864451502774
 Transform:

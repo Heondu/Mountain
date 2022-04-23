@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4963547438805780}
   - component: {fileID: 33725048116754068}
   - component: {fileID: 23850885873589306}
-  m_Layer: 16
+  m_Layer: 0
   m_Name: CliffEdge04_LOD00
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,12 +92,12 @@ GameObject:
   - component: {fileID: 4514259927114374}
   - component: {fileID: 33955904337314122}
   - component: {fileID: 23508497555027026}
-  m_Layer: 16
+  m_Layer: 0
   m_Name: CliffEdge04_LOD01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967294
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &4514259927114374
 Transform:
@@ -173,12 +173,12 @@ GameObject:
   - component: {fileID: 4950846411629506}
   - component: {fileID: 33072386899334302}
   - component: {fileID: 23799351836424604}
-  m_Layer: 16
+  m_Layer: 0
   m_Name: CliffEdge04_LOD02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967294
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &4950846411629506
 Transform:
@@ -254,7 +254,7 @@ GameObject:
   - component: {fileID: 4301333872304726}
   - component: {fileID: 205296271964176190}
   - component: {fileID: 64657130235148314}
-  m_Layer: 16
+  m_Layer: 0
   m_Name: CliffEdge04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
