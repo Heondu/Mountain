@@ -1,5 +1,5 @@
 {
-    "m_SGVersion": 2,
+    "m_SGVersion": 3,
     "m_Type": "UnityEditor.ShaderGraph.GraphData",
     "m_ObjectId": "bb1ad71f553c4d6fbed049488b1fb2df",
     "m_Properties": [
@@ -41,6 +41,12 @@
         }
     ],
     "m_Keywords": [],
+    "m_Dropdowns": [],
+    "m_CategoryData": [
+        {
+            "m_Id": "8539ec20e478460f9a55260357722bfa"
+        }
+    ],
     "m_Nodes": [
         {
             "m_Id": "ba292afacf3e426786910352679c2f03"
@@ -342,10 +348,11 @@
         "serializedMesh": {
             "m_SerializedMesh": "{\"mesh\":{\"instanceID\":0}}",
             "m_Guid": ""
-        }
+        },
+        "preventRotation": false
     },
     "m_Path": "Shader Graphs",
-    "m_ConcretePrecision": 0,
+    "m_GraphPrecision": 0,
     "m_PreviewMode": 2,
     "m_OutputNode": {
         "m_Id": ""
@@ -400,9 +407,13 @@
         "m_GuidSerialized": "33a5c3e4-39c0-4f71-a3ff-649343d3c68d"
     },
     "m_Name": "SnowTexture",
+    "m_DefaultRefNameVersion": 0,
+    "m_RefNameGeneratedByDisplayName": "",
     "m_DefaultReferenceName": "",
     "m_OverrideReferenceName": "Texture2D_f64d300443dc4f95b084f5797afb908b_1",
     "m_GeneratePropertyBlock": true,
+    "m_UseCustomSlotLabel": false,
+    "m_CustomSlotLabel": "",
     "m_Precision": 0,
     "overrideHLSLDeclaration": false,
     "hlslDeclarationOverride": 0,
@@ -411,6 +422,8 @@
         "m_SerializedTexture": "{\"texture\":{\"fileID\":2800000,\"guid\":\"04cf917670bf4c644abab819cdf1f0ec\",\"type\":3}}",
         "m_Guid": ""
     },
+    "isMainTexture": false,
+    "useTilingAndOffset": false,
     "m_Modifiable": true,
     "m_DefaultType": 0
 }
@@ -650,9 +663,13 @@
         "m_GuidSerialized": "796ce5bd-81aa-47e3-bcd1-894b8be01d16"
     },
     "m_Name": "SandHeightMin",
+    "m_DefaultRefNameVersion": 0,
+    "m_RefNameGeneratedByDisplayName": "",
     "m_DefaultReferenceName": "",
     "m_OverrideReferenceName": "Vector1_2",
     "m_GeneratePropertyBlock": true,
+    "m_UseCustomSlotLabel": false,
+    "m_CustomSlotLabel": "",
     "m_Precision": 0,
     "overrideHLSLDeclaration": false,
     "hlslDeclarationOverride": 0,
@@ -724,9 +741,13 @@
         "m_GuidSerialized": "22b75dca-38af-4fba-9759-8e0e3ddd89f6"
     },
     "m_Name": "SnowHeightMax",
+    "m_DefaultRefNameVersion": 0,
+    "m_RefNameGeneratedByDisplayName": "",
     "m_DefaultReferenceName": "",
     "m_OverrideReferenceName": "Vector1_3",
     "m_GeneratePropertyBlock": true,
+    "m_UseCustomSlotLabel": false,
+    "m_CustomSlotLabel": "",
     "m_Precision": 0,
     "overrideHLSLDeclaration": false,
     "hlslDeclarationOverride": 0,
@@ -837,7 +858,9 @@
         -212750655,
         1682734108,
         373961792
-    ]
+    ],
+    "m_Dropdowns": [],
+    "m_DropdownSelectedEntries": []
 }
 
 {
@@ -1145,9 +1168,13 @@
         "m_GuidSerialized": "2d88aeae-fddb-436d-9942-182132e8ad5f"
     },
     "m_Name": "SandHeightMax",
+    "m_DefaultRefNameVersion": 0,
+    "m_RefNameGeneratedByDisplayName": "",
     "m_DefaultReferenceName": "",
     "m_OverrideReferenceName": "Vector1_4",
     "m_GeneratePropertyBlock": true,
+    "m_UseCustomSlotLabel": false,
+    "m_CustomSlotLabel": "",
     "m_Precision": 0,
     "overrideHLSLDeclaration": false,
     "hlslDeclarationOverride": 0,
@@ -1158,6 +1185,51 @@
         "x": 0.0,
         "y": 1.0
     }
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.CategoryData",
+    "m_ObjectId": "8539ec20e478460f9a55260357722bfa",
+    "m_Name": "",
+    "m_ChildObjectList": [
+        {
+            "m_Id": "a59782d8ec8c4b8e987dac18b272fc63"
+        },
+        {
+            "m_Id": "8d8496d906b24130a24ff1d8651b6a2a"
+        },
+        {
+            "m_Id": "f4fa506a10ce44508b55bd1ea6a2c1bf"
+        },
+        {
+            "m_Id": "f3d100c39e7e46e9b6d4433c87266526"
+        },
+        {
+            "m_Id": "f64d300443dc4f95b084f5797afb908b"
+        },
+        {
+            "m_Id": "09ee2f9beb9240d8972a305b512f7218"
+        },
+        {
+            "m_Id": "e9d98bf3809d478791c1567a66dae0d3"
+        },
+        {
+            "m_Id": "94b4399097a74de6b230cf0251da4c78"
+        },
+        {
+            "m_Id": "48d3a5cce2ff4d0e98c028364e383873"
+        },
+        {
+            "m_Id": "3006c0b263294570804ce593f6ed488a"
+        },
+        {
+            "m_Id": "7a549a954be34140b2ac57b90347ec78"
+        },
+        {
+            "m_Id": "f57604fe172c46b68511634139fe1741"
+        }
+    ]
 }
 
 {
@@ -1201,9 +1273,13 @@
         "m_GuidSerialized": "5e5af6dc-815a-4d11-939e-030e068ad697"
     },
     "m_Name": "SlopeMin",
+    "m_DefaultRefNameVersion": 0,
+    "m_RefNameGeneratedByDisplayName": "",
     "m_DefaultReferenceName": "Vector1_8d8496d906b24130a24ff1d8651b6a2a",
     "m_OverrideReferenceName": "",
     "m_GeneratePropertyBlock": true,
+    "m_UseCustomSlotLabel": false,
+    "m_CustomSlotLabel": "",
     "m_Precision": 0,
     "overrideHLSLDeclaration": false,
     "hlslDeclarationOverride": 0,
@@ -1254,9 +1330,13 @@
         "m_GuidSerialized": "32b26d1d-e30a-46d1-b3aa-7d1e1aba7429"
     },
     "m_Name": "SnowHeightMin",
+    "m_DefaultRefNameVersion": 0,
+    "m_RefNameGeneratedByDisplayName": "",
     "m_DefaultReferenceName": "Vector1_94b4399097a74de6b230cf0251da4c78",
     "m_OverrideReferenceName": "",
     "m_GeneratePropertyBlock": true,
+    "m_UseCustomSlotLabel": false,
+    "m_CustomSlotLabel": "",
     "m_Precision": 0,
     "overrideHLSLDeclaration": false,
     "hlslDeclarationOverride": 0,
@@ -1332,9 +1412,13 @@
         "m_GuidSerialized": "6f3b5172-6093-4f50-b979-dd3f91de9a33"
     },
     "m_Name": "Tangent",
+    "m_DefaultRefNameVersion": 0,
+    "m_RefNameGeneratedByDisplayName": "",
     "m_DefaultReferenceName": "Vector3_a59782d8ec8c4b8e987dac18b272fc63",
     "m_OverrideReferenceName": "",
     "m_GeneratePropertyBlock": true,
+    "m_UseCustomSlotLabel": false,
+    "m_CustomSlotLabel": "",
     "m_Precision": 0,
     "overrideHLSLDeclaration": false,
     "hlslDeclarationOverride": 0,
@@ -1739,17 +1823,23 @@
 }
 
 {
-    "m_SGVersion": 0,
+    "m_SGVersion": 1,
     "m_Type": "UnityEditor.Rendering.Universal.ShaderGraph.UniversalTarget",
     "m_ObjectId": "e777235517884e34bccd69d18bd5e28b",
     "m_ActiveSubTarget": {
         "m_Id": "d7c46e53f8734a48a76d497a5552977a"
     },
+    "m_AllowMaterialOverride": false,
     "m_SurfaceType": 0,
+    "m_ZTestMode": 4,
+    "m_ZWriteControl": 0,
     "m_AlphaMode": 0,
-    "m_TwoSided": false,
+    "m_RenderFace": 2,
     "m_AlphaClip": false,
-    "m_CustomEditorGUI": ""
+    "m_CastShadows": true,
+    "m_ReceiveShadows": true,
+    "m_CustomEditorGUI": "",
+    "m_SupportVFX": false
 }
 
 {
@@ -1760,9 +1850,13 @@
         "m_GuidSerialized": "0a28ad5a-bab5-479e-959b-defebd89c261"
     },
     "m_Name": "SandTexture",
+    "m_DefaultRefNameVersion": 0,
+    "m_RefNameGeneratedByDisplayName": "",
     "m_DefaultReferenceName": "",
     "m_OverrideReferenceName": "Texture2D_f64d300443dc4f95b084f5797afb908b_2",
     "m_GeneratePropertyBlock": true,
+    "m_UseCustomSlotLabel": false,
+    "m_CustomSlotLabel": "",
     "m_Precision": 0,
     "overrideHLSLDeclaration": false,
     "hlslDeclarationOverride": 0,
@@ -1771,6 +1865,8 @@
         "m_SerializedTexture": "{\"texture\":{\"fileID\":2800000,\"guid\":\"04cf917670bf4c644abab819cdf1f0ec\",\"type\":3}}",
         "m_Guid": ""
     },
+    "isMainTexture": false,
+    "useTilingAndOffset": false,
     "m_Modifiable": true,
     "m_DefaultType": 0
 }
@@ -1811,9 +1907,13 @@
         "m_GuidSerialized": "9e101854-5ba0-4944-b8a1-cf3aaa32b061"
     },
     "m_Name": "GrassTexture",
+    "m_DefaultRefNameVersion": 0,
+    "m_RefNameGeneratedByDisplayName": "",
     "m_DefaultReferenceName": "Texture2D_f3d100c39e7e46e9b6d4433c87266526",
     "m_OverrideReferenceName": "",
     "m_GeneratePropertyBlock": true,
+    "m_UseCustomSlotLabel": false,
+    "m_CustomSlotLabel": "",
     "m_Precision": 0,
     "overrideHLSLDeclaration": false,
     "hlslDeclarationOverride": 0,
@@ -1822,6 +1922,8 @@
         "m_SerializedTexture": "{\"texture\":{\"fileID\":2800000,\"guid\":\"a42cd62f3c2eebb47b0132c8c661b27e\",\"type\":3}}",
         "m_Guid": ""
     },
+    "isMainTexture": false,
+    "useTilingAndOffset": false,
     "m_Modifiable": true,
     "m_DefaultType": 0
 }
@@ -1869,9 +1971,13 @@
         "m_GuidSerialized": "c9cb6839-699c-426c-b014-0d6a37dd3996"
     },
     "m_Name": "SlopeMax",
+    "m_DefaultRefNameVersion": 0,
+    "m_RefNameGeneratedByDisplayName": "",
     "m_DefaultReferenceName": "",
     "m_OverrideReferenceName": "Vector1_1",
     "m_GeneratePropertyBlock": true,
+    "m_UseCustomSlotLabel": false,
+    "m_CustomSlotLabel": "",
     "m_Precision": 0,
     "overrideHLSLDeclaration": false,
     "hlslDeclarationOverride": 0,
@@ -1892,9 +1998,13 @@
         "m_GuidSerialized": "f19106ef-8cf6-4b95-8683-c6da3395dbdd"
     },
     "m_Name": "Tiling",
+    "m_DefaultRefNameVersion": 0,
+    "m_RefNameGeneratedByDisplayName": "",
     "m_DefaultReferenceName": "Vector2_f57604fe172c46b68511634139fe1741",
     "m_OverrideReferenceName": "",
     "m_GeneratePropertyBlock": true,
+    "m_UseCustomSlotLabel": false,
+    "m_CustomSlotLabel": "",
     "m_Precision": 0,
     "overrideHLSLDeclaration": false,
     "hlslDeclarationOverride": 0,
@@ -1915,9 +2025,13 @@
         "m_GuidSerialized": "9b12c5b8-5783-42a5-bc99-9d5f1d2601d1"
     },
     "m_Name": "SlopeTexture",
+    "m_DefaultRefNameVersion": 0,
+    "m_RefNameGeneratedByDisplayName": "",
     "m_DefaultReferenceName": "Texture2D_f64d300443dc4f95b084f5797afb908b",
     "m_OverrideReferenceName": "",
     "m_GeneratePropertyBlock": true,
+    "m_UseCustomSlotLabel": false,
+    "m_CustomSlotLabel": "",
     "m_Precision": 0,
     "overrideHLSLDeclaration": false,
     "hlslDeclarationOverride": 0,
@@ -1926,6 +2040,8 @@
         "m_SerializedTexture": "{\"texture\":{\"fileID\":2800000,\"guid\":\"265afc38761d4ba40a6a562b2af765a8\",\"type\":3}}",
         "m_Guid": ""
     },
+    "isMainTexture": false,
+    "useTilingAndOffset": false,
     "m_Modifiable": true,
     "m_DefaultType": 0
 }

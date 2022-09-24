@@ -31,13 +31,14 @@ public class DestroyObject : MonoBehaviour
 
     void Update()
     {
+        if (delay > 0)
+        {
+            delay -= Time.deltaTime;
+        }
+
         if (shrink)
         {
-            if (delay > 0)
-            {
-                delay -= Time.deltaTime;
-            }
-            else
+            if (delay <= 0)
             {
                 timer += Time.deltaTime * ShrinkSpeed;
 
@@ -49,6 +50,13 @@ public class DestroyObject : MonoBehaviour
                 }
             }
             
+        }
+        else
+        {
+            if (delay <= 0)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 }

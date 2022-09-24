@@ -7,9 +7,11 @@ public class PlayerFlyingGauge : MonoBehaviour
     private float currentFlyingGauge = 0f;
     [SerializeField] private float cooldown = 3f;
     private PlayerMovement movement;
+    private int featherNum = 0;
 
     [HideInInspector]
-    public UnityEvent<float, float> onValueChanged = new UnityEvent<float, float>();
+    public UnityEvent<float, float> onGaugeValueChanged = new UnityEvent<float, float>();
+    public UnityEvent<int> onFeatherValueChanged = new UnityEvent<int>();
 
     private void Awake()
     {
@@ -27,6 +29,7 @@ public class PlayerFlyingGauge : MonoBehaviour
 
     public void AddFlyingGauge(float amount)
     {
+        featherNum++;
         flyingGauge += amount;
         GaugeUIUpdate();
     }
@@ -54,7 +57,8 @@ public class PlayerFlyingGauge : MonoBehaviour
 
     private void GaugeUIUpdate()
     {
-        onValueChanged.Invoke(flyingGauge, currentFlyingGauge);
+        onGaugeValueChanged.Invoke(flyingGauge, currentFlyingGauge);
+        onFeatherValueChanged.Invoke(featherNum);
     }
 
     private void ClampGauge()

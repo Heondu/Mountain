@@ -103,8 +103,8 @@ public class CameraFollow : MonoBehaviour
         handlePivotPosition();
 
         //look at player
-        
-        
+
+
         LookAtPos = target.position;
 
         //Vector3 WorldPos = transform.up;
@@ -118,6 +118,12 @@ public class CameraFollow : MonoBehaviour
 
         Vector3 LerpDir = Vector3.Lerp(transform.up, target.up, d * FolSpd);
         transform.rotation = Quaternion.FromToRotation(transform.up, LerpDir) * transform.rotation;
+
+        if (Input.GetAxis("Horizontal") != 0)
+        {
+            LerpDir = Vector3.Lerp(transform.forward, target.forward, d * FolSpd);
+            transform.rotation = Quaternion.FromToRotation(transform.forward, LerpDir) * transform.rotation;
+        }
 
         if (AutoXInput < 0)
         {

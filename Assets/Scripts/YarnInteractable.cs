@@ -15,7 +15,7 @@ public class YarnInteractable : MonoBehaviour {
         dialogueRunner.onDialogueComplete.AddListener(EndConversation);
     }
 
-    public void OnMouseDown()
+    public void Interact()
     {
         if (interactable && !dialogueRunner.IsDialogueRunning)
             StartConversation();

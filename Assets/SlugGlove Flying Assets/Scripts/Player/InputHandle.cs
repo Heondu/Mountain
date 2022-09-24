@@ -18,6 +18,7 @@ public class InputHandle : MonoBehaviour
     public bool RB;
 
     public bool Fly;
+    public bool Dash;
 
     private void Start()
     {
@@ -32,10 +33,10 @@ public class InputHandle : MonoBehaviour
 
         Jump = Input.GetButtonDown("Jump");
         JumpHold = Input.GetButton("Jump");
-        Fly = JumpHold; 
+        Fly = JumpHold;
+        Dash = Input.GetButton("Dash");
 
-        RB = Input.GetKeyDown(KeyCode.E);
-        LB = Input.GetKeyDown(KeyCode.Q);
-
+        RB = Input.GetKey(KeyCode.E);
+        LB = Input.GetKey(KeyCode.Q);
     }
 }

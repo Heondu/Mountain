@@ -42,6 +42,7 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Stats")]
     public float MaxSpeed = 15f; //max speed for basic movement
+    public float DashSpeed = 20f;
     public float SpeedClamp = 50f; //max possible speed
     private float ActAccel; //our actual acceleration
     public float Acceleration = 4f; //how quickly we build speed
@@ -246,7 +247,7 @@ public class PlayerMovement : MonoBehaviour
         if (Rigid != null)
             CamVel = Rigid.velocity.magnitude;
         //change the cameras fov based on speed
-        CamFol.HandleFov(delta, CamVel);
+        //CamFol.HandleFov(delta, CamVel);
 
         //cannot function when dead
         if (States == WorldState.Static)
@@ -283,17 +284,22 @@ public class PlayerMovement : MonoBehaviour
             float Accel = Acceleration;
             float MoveAccel = MovementAcceleration;
 
+            if (InputHand.Dash)
+            {
+                LSpeed = DashSpeed;
+            }
+
             //reduce floor timer
             if (FloorTimer > 0)
                 FloorTimer -= delta;
 
-           if (InputHand.Horizontal == 0 && InputHand.Vertical == 0)
+            if (InputHand.Horizontal == 0 && InputHand.Vertical == 0)
             {
                 //we are not moving, lerp to a walk speed
                 LSpeed = 0f;
                 Accel = SlowDownAcceleration;
             }
-           //lerp our current speed
+            //lerp our current speed
             if (ActSpeed > LSpeed - 0.5f || ActSpeed < LSpeed + 0.5f)
                 LerpSpeed(delta, LSpeed, Accel);
             //move our character
@@ -704,6 +710,10 @@ public class PlayerMovement : MonoBehaviour
         //lerp mesh slower when not on ground
         RotateSelf(DownwardDirection, d, rotSpd);
         RotateMesh(d, SideDir, rotSpd);
+        if (XMove == 0)
+        {
+            RotateHorizontal(d, rotSpd * 0.1f);
+        }
 
         if (FlyingTimer < GlideTime * 0.7f) //lerp to velocity if not flying
             RotateToVelocity(d, rotSpd * 0.05f);
@@ -735,15 +745,15 @@ public class PlayerMovement : MonoBehaviour
             VD = Vector3.Lerp(VD, transform.forward, d * (FlyingUpDownSpeed * (ZMove * -1)));
         }
 
-        //LB and RB input = roll (this effects our downward direction
-        if (InputHand.LB) //left roll
-        {
-            VD = Vector3.Lerp(VD, -transform.right, d * FlyingRollSpeed);
-        }
-        else if (InputHand.RB) //right roll
-        {
-            VD = Vector3.Lerp(VD, transform.right, d * FlyingRollSpeed);
-        }
+        ////LB and RB input = roll (this effects our downward direction
+        //if (InputHand.LB) //left roll
+        //{
+        //    VD = Vector3.Lerp(VD, -transform.right, d * FlyingRollSpeed);
+        //}
+        //else if (InputHand.RB) //right roll
+        //{
+        //    VD = Vector3.Lerp(VD, transform.right, d * FlyingRollSpeed);
+        //}
 
         return VD;
     }
@@ -762,15 +772,15 @@ public class PlayerMovement : MonoBehaviour
         {
             RollDir = Vector3.Lerp(RollDir, transform.right, d * (FlyingLeftRightSpeed * (XMove * -1)));
         }
-        //bumper input
-        if (InputHand.LB)
-        {
-            RollDir = Vector3.Lerp(RollDir, -transform.right, d * FlyingLeftRightSpeed * 0.2f);
-        }
-        else if (InputHand.RB)
-        {
-            RollDir = Vector3.Lerp(RollDir, transform.right, d * FlyingLeftRightSpeed * 0.2f);
-        }
+        ////bumper input
+        //if (InputHand.LB)
+        //{
+        //    RollDir = Vector3.Lerp(RollDir, -transform.right, d * FlyingLeftRightSpeed * 0.2f);
+        //}
+        //else if (InputHand.RB)
+        //{
+        //    RollDir = Vector3.Lerp(RollDir, transform.right, d * FlyingLeftRightSpeed * 0.2f);
+        //}
 
         return RollDir;
     }
@@ -790,6 +800,11 @@ public class PlayerMovement : MonoBehaviour
     void RotateToVelocity(float d, float spd)
     {
         Quaternion SlerpRot = Quaternion.LookRotation(Rigid.velocity.normalized);
+        transform.rotation = Quaternion.Slerp(transform.rotation, SlerpRot, spd * d);
+    }
+    void RotateHorizontal(float d, float spd)
+    {
+        Quaternion SlerpRot = Quaternion.Euler(transform.eulerAngles.x, transform.eulerAngles.y, 0);
         transform.rotation = Quaternion.Slerp(transform.rotation, SlerpRot, spd * d);
     }
 
