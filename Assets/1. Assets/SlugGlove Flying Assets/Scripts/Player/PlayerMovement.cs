@@ -15,8 +15,11 @@ public class PlayerMovement : MonoBehaviour
 
     [HideInInspector]
     public WorldState States;
+    [SerializeField]
     private Transform Cam; //reference to our camera
+    [SerializeField]
     private Transform CamY; //reference to our camera axis
+    [SerializeField]
     private CameraFollow CamFol; //reference to our camera script
     private PlayerVisuals Visuals; //script for handling visual effects
     private Vector3 CheckPointPos; //where we respawn
@@ -78,6 +81,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("Flying Physics")]
     public float FlyingGravityAmt = 2f; //how much gravity will pull us down when flying
     public float GlideGravityAmt = 4f; //how much gravity affects us when just gliding
+    public float FallGravityAmt = 8f; //how much gravity affects us when just gliding
     public float FlyingGravBuildSpeed = 3f; //how much our gravity is lerped when stopping flying
 
     public float FlyingVelocityGain = 2f; //how much velocity we gain for flying downwards
@@ -117,9 +121,9 @@ public class PlayerMovement : MonoBehaviour
         HipsPos = Visuals.HipsPos;
         playerFlyingGauge = GetComponent<PlayerFlyingGauge>();
 
-        Cam = GameObject.FindGameObjectWithTag("MainCamera").transform;
-        CamY = Cam.transform.parent.parent.transform;
-        CamFol = Cam.GetComponentInParent<CameraFollow>();
+        //Cam = GameObject.FindGameObjectWithTag("MainCamera").transform;
+        //CamY = Cam.transform.parent.parent.transform;
+        //CamFol = Cam.GetComponentInParent<CameraFollow>();
 
         CheckPointPos = transform.position;
 
@@ -203,19 +207,19 @@ public class PlayerMovement : MonoBehaviour
                 return;
 
             //check wall collision for a crash, if this unit can crash
-            bool WallHit = Colli.CheckWall();
-
-            //if we have hit a wall
-            if (WallHit)
-            {
-                //if we are going fast enough to crash into a wall
-                if(ActSpeed > SpeedLimitBeforeCrash)
-                {
-                    //stun character
-                    Stunned(-transform.forward);
-                    return;
-                }
-            }
+            //bool WallHit = Colli.CheckWall();
+            //
+            ////if we have hit a wall
+            //if (WallHit)
+            //{
+            //    //if we are going fast enough to crash into a wall
+            //    if(ActSpeed > SpeedLimitBeforeCrash)
+            //    {
+            //        //stun character
+            //        Stunned(-transform.forward);
+            //        return;
+            //    }
+            //}
 
             //check for ground if we are not holding the flying button
             if (!InputHand.Fly)
@@ -261,9 +265,9 @@ public class PlayerMovement : MonoBehaviour
         float _zMov = InputHand.Vertical;
 
         //get our direction of input based on camera position
-        Vector3 screenMovementForward = CamY.transform.forward;
-        Vector3 screenMovementRight = CamY.transform.right;
-        Vector3 screenMovementUp = CamY.transform.up;
+        Vector3 screenMovementForward = Cam.transform.forward;
+        Vector3 screenMovementRight = Cam.transform.right;
+        Vector3 screenMovementUp = Cam.transform.up;
 
         Vector3 h = screenMovementRight * _xMov;
         Vector3 v = screenMovementForward * _zMov;
@@ -695,6 +699,9 @@ public class PlayerMovement : MonoBehaviour
         float InvertX = -1;
         float InvertY = -1;
 
+        if (InputHand.Fall && ZMove >= 0)
+            ZMove = Mathf.Max(0.9f, ZMove);
+
         XMove = XMove * InvertX; //horizontal inputs
         ZMove = ZMove * InvertY; //vertical inputs
 
@@ -720,6 +727,8 @@ public class PlayerMovement : MonoBehaviour
         //push down more when not pressing fly
         if(InputHand.Fly)
             ActGravAmt = Mathf.Lerp(ActGravAmt, FlyingGravityAmt, FlyingGravBuildSpeed * 4f * d);
+        else if (InputHand.Fall && ZMove >= 0)
+            ActGravAmt = Mathf.Lerp(ActGravAmt, FallGravityAmt, FlyingGravBuildSpeed * 8f * d);
         else
             ActGravAmt = Mathf.Lerp(ActGravAmt, GlideGravityAmt, FlyingGravBuildSpeed * 0.5f * d);
  

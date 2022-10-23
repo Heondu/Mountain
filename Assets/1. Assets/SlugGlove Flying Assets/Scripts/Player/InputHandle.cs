@@ -19,6 +19,7 @@ public class InputHandle : MonoBehaviour
 
     public bool Fly;
     public bool Dash;
+    public bool Fall;
 
     public bool isStop = false;
 
@@ -38,6 +39,7 @@ public class InputHandle : MonoBehaviour
             JumpHold = false;
             Fly = false;
             Dash = false;
+            Fall = false;
             RB = false;
             LB = false;
             return;
@@ -50,6 +52,7 @@ public class InputHandle : MonoBehaviour
         JumpHold = Input.GetButton("Jump");
         Fly = (JumpHold && playerFlyingGauge.isGaugeLeft()) ? true : false;
         Dash = Input.GetButton("Dash");
+        Fall = Input.GetButton("Fall");
 
         RB = Input.GetKey(KeyCode.E);
         LB = Input.GetKey(KeyCode.Q);

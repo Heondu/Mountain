@@ -17,6 +17,7 @@ public class CameraFollowTarget : MonoBehaviour
         if (Target.Rigid != null)
             MPos = Target.Rigid.position;
 
-        transform.position = MPos + (OffsetDirection.up * Offset);
+        //transform.position = MPos + (OffsetDirection.up * Offset);
+        transform.position = MPos + (Vector3.up * Offset);
     }
 }
