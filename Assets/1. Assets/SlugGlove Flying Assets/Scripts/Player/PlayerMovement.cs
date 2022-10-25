@@ -438,7 +438,7 @@ public class PlayerMovement : MonoBehaviour
         OnGround = true;
 
         //camera reset flying state
-        CamFol.SetFlyingState(0);
+        //CamFol.SetFlyingState(0);
 
         //turn on gravity
         Rigid.useGravity = true;
@@ -453,7 +453,7 @@ public class PlayerMovement : MonoBehaviour
         States = WorldState.InAir;
 
         //camera reset flying state
-        CamFol.SetFlyingState(0);
+        //CamFol.SetFlyingState(0);
 
         //turn off gravity
         Rigid.useGravity = true;
@@ -471,7 +471,7 @@ public class PlayerMovement : MonoBehaviour
         FlownAdjustmentLerp = -1;
 
         //camera set flying state
-        CamFol.SetFlyingState(1);
+        //CamFol.SetFlyingState(1);
 
         //turn on gravity
         Rigid.useGravity = false;
